@@ -1,0 +1,21 @@
+{
+  "name": "page-feedback",
+  "version": "1.0.0",
+  "description": "Webcomponent to aquire customer feedback at the bottom of all the pages",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.0.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.3",
+    "uglify-js": "^3.4.8",
+    "webpack": "^4.17.0"
+  }
+}

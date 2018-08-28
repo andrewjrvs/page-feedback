@@ -1,0 +1,172 @@
+:host { 
+    background: #F2F3F4;
+    display: block;
+    padding: 1em;
+}
+label {
+    display: block;
+    margin-bottom: .2em;
+    
+}
+.feedback-container {
+    color: #B2BABB;
+    padding-left: 30px;
+    position: relative;
+
+    &:hover,
+    &.dirty, 
+    &.eventSent {
+        color: #888;
+        transition: 1s all;
+    }
+
+
+    .feedback-input-wrapper {
+        width: 80%;
+        border: 1px solid #F0F3F4;
+        background-color: #FBFCFC;
+        position: relative;
+        max-width: 500px;
+        padding: 0 2em 0 0;
+
+        input {
+            border: none;
+            padding: .2em 2em .2em .2em;
+            width: 100%;
+            background-color: transparent;
+            position: relative;
+            z-index: 5;
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #B2BABB;
+            opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #B2BABB;
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: #B2BABB;
+        }
+            
+
+        &:hover {
+            ::placeholder { 
+                color: #888;
+                transition: 1s all;
+            }
+
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #888;
+            }
+            
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: #888;
+            }
+        }
+        button {
+            border: none;
+            background-color: transparent;
+            display: none;
+            right: 0px;
+            position: absolute;
+            z-index: 6;
+            top: .1em;
+            cursor: pointer;
+            width: 20px;
+            padding: 0;
+            height: 20px;
+
+            svg {
+                height: 10px;
+            }
+        }
+
+    }// END feedback-input-wrapper
+
+    &.dirty {
+        button {
+            display: block;
+        }
+    }
+
+
+    svg#leftImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 18px;
+        display: block;
+        fill: #B2BABB;
+        transition: 1s fill;
+    }
+    &.dirty,
+    &.eventSent,
+    &:hover {
+        svg#leftImage path{
+            fill: #888;
+        }
+    }
+
+    #checkmark {
+        display: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        stroke-width: 2;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        margin: 0;
+        box-shadow: inset 0px 0px 0px #7ac142;
+        position: absolute;
+        top: 1px;
+        right: 1px;
+    }
+
+    &.eventSent {
+        #checkmark {
+            display: block;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #7ac142;
+            fill: none;
+            animation: stroke .6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards;
+        }
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke .3s cubic-bezier(0.650, 0.000, 0.450, 1.000) .8s forwards;
+        }
+
+    }
+}// END feedback-container
+
+@keyframes stroke {
+  100% {
+      stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+      transform: none;
+  }
+  50% {
+      transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+      box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}

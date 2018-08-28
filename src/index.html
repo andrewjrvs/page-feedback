@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script src="node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+  <script src="src/lib/page-feedback.js"></script>
+  <!-- <script src="dist/page-feedback-element.min.js"></script> -->
+  <style>
+    .container {
+      max-width: 900px;
+      margin: 0 auto 0 auto;
+      display: block;
+    }
+    /* for IE */
+    page-feedback[activated] {
+        background: #F2F3F4;
+        display: block;
+        padding: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1>Testing</h1>
+
+    <page-feedback open="true"></page-feedback>
+  </main>
+
+  <script>
+  
+    document.addEventListener('page-feedback-DataSubmit', function (e) {
+        console.log('event triggered', e.detail, e);
+    });
+  </script>
+</body>
+
+</html>
