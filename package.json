@@ -14,7 +14,7 @@
     "@webcomponents/webcomponentsjs": "^2.0.4"
   },
   "devDependencies": {
-    "node-sass": "^7.0.1",
+    "node-sass": "^7.0.3",
     "uglify-js": "^3.15.4",
     "webpack": "^5.72.0"
   }
